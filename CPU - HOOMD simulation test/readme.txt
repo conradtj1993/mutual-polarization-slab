@@ -20,27 +20,14 @@ Package contents
     FixedDipoleForce: uses compute_forces with fixed dipoles
     MutualPolarizationDipoleForceCached: solves induced dipoles every pol_every_steps and caches dipoles
 
-Build / install (CPU)
-Requirements
-- Python (same version as your HOOMD build)
-- numpy
-- pybind11
-- a C++17 compiler (g++/clang++)
-Optional
-- OpenMP (used if available; gives CPU parallelism)
-- SciPy (used for scipy.sparse.linalg.gmres if enabled)
-
-In-place build (development workflow)
+Build / install
 - Put setup_dipole_forces_ext.py next to the package directory or scripts.
 - Run:
     python setup_dipole_forces_ext.py build_ext --inplace
-
-Editable install (if you have a proper package directory)
-- From the project root:
-    pip install -e .
 
 GPU port (what would be required)
 - Implement a HOOMD v6 C++ ForceCompute with a CUDA backend (NVCC build) that computes the
   dipole kernel on the GPU using HOOMD neighbor lists on-device.
 - If you want the mutual polarization solve on GPU, capacitance/ewald must move off Python/NumPy
   (and likely require GPU FFT + GPU linear algebra / Krylov solver).
+
