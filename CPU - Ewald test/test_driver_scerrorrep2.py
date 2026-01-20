@@ -87,14 +87,6 @@ def main() -> None:
 
         surfs[i, :] = u_s_h
     print(surfs)
-    mdict = {
-        "surfs": surfs,
-        "betas": betas.reshape(1, -1),
-        "h": h.reshape(-1, 1),
-    }
-    savemat("SCErrorREP2.mat", mdict)
-    print("Saved -> SCErrorREP2.mat", flush=True)
-
 
 if __name__ == "__main__":
     main()
