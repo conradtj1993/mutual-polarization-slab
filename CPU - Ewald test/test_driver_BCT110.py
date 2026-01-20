@@ -168,19 +168,6 @@ def main() -> None:
 
     print("surfs =", surfs, flush=True)
 
-    mdict = {
-        "surfs": surfs,
-        "betas": betas.reshape(1, -1),
-        "h": h.reshape(-1, 1),
-        "x": x,         # save geometry for sanity checks
-        "L_0": L_0,      # save base box
-        "A": A,
-        "xi": float(xi),
-        "H0": H0,
-    }
-    savemat("SCErrorREP2_BCT110.mat", mdict)
-    print("Saved -> SCErrorREP2_BCT110.mat", flush=True)
-
-
 if __name__ == "__main__":
     main()
+
